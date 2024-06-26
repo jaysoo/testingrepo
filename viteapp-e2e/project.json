@@ -1,0 +1,29 @@
+{
+  "name": "viteapp-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "viteapp-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["viteapp"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "viteapp-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "viteapp:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "viteapp:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "viteapp:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
