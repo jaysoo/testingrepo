@@ -85,28 +85,5 @@
       }
     }
   },
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "eslint:lint"
-      }
-    },
-    {
-      "plugin": "@nx/vite/plugin",
-      "options": {
-        "buildTargetName": "vite:build",
-        "testTargetName": "test",
-        "serveTargetName": "vite:serve",
-        "previewTargetName": "vite:preview",
-        "serveStaticTargetName": "vite:serve-static"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    }
-  ]
+  "plugins": []
 }
