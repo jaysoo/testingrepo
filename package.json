@@ -13,6 +13,7 @@
     "@nx/eslint-plugin": "19.4.0-canary.20240626-3a2e8d4",
     "@nx/jest": "19.4.0-canary.20240626-3a2e8d4",
     "@nx/js": "19.4.0-canary.20240626-3a2e8d4",
+    "@nx/next": "^19.4.0-canary.20240626-3a2e8d4",
     "@nx/playwright": "19.4.0-canary.20240626-3a2e8d4",
     "@nx/react": "^19.4.0-canary.20240626-3a2e8d4",
     "@nx/rollup": "19.4.0-canary.20240626-3a2e8d4",
@@ -45,6 +46,7 @@
     "babel-jest": "^29.4.1",
     "cypress": "^13.8.0",
     "eslint": "~8.57.0",
+    "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
     "eslint-plugin-import": "2.27.5",
@@ -68,6 +70,7 @@
     "vue-tsc": "^1.8.8"
   },
   "dependencies": {
+    "next": "14.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tslib": "^2.3.0",

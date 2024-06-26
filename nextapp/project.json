@@ -1,0 +1,63 @@
+{
+  "name": "nextapp",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "nextapp",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/nextapp",
+        "generateLockfile": true,
+        "experimentalAppOnly": true,
+        "assets": [{ "input": "tools", "output": ".", "glob": "test.txt" }]
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "nextapp"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 6000,
+        "buildTarget": "nextapp:build",
+        "dev": true,
+        "turbo": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nextapp:build:development",
+          "dev": true
+        },
+        "production": {
+          "port": 6001,
+          "buildTarget": "nextapp:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "nextapp:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "nextapp/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
