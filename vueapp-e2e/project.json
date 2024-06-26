@@ -1,0 +1,19 @@
+{
+  "name": "vueapp-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "vueapp-e2e/src",
+  "implicitDependencies": ["vueapp"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/vueapp-e2e"],
+      "options": {
+        "config": "vueapp-e2e/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
