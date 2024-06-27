@@ -19,14 +19,21 @@
         "development": {
           "outputPath": "nextapp"
         },
-        "production": {}
+        "production": {
+        "fileReplacements": [
+          { "replace": "nextapp/src/app/msg.ts",
+              "with": "nextapp/src/app/msg.prod.ts"
+            }
+        ],
+
+        }
       }
     },
     "serve": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "port": 6000,
+        "port": 9000,
         "buildTarget": "nextapp:build",
         "dev": true,
         "turbo": true
@@ -37,7 +44,7 @@
           "dev": true
         },
         "production": {
-          "port": 6001,
+          "port": 9001,
           "buildTarget": "nextapp:build:production",
           "dev": false
         }
