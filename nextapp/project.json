@@ -6,40 +6,31 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
-      "outputs": ["{options.outputPath}"],
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "externalDependencies": ["next"]
+        }
+      ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/nextapp",
-        "generateLockfile": true,
-        "experimentalAppOnly": true,
-        "assets": [{ "input": "tools", "output": ".", "glob": "test.txt" }]
+        "args": ["--experimental-app-only"]
       },
       "configurations": {
-        "development": {
-          "outputPath": "nextapp"
-        },
+        "development": {},
         "production": {}
       }
     },
     "serve": {
-      "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "port": 6000,
-        "buildTarget": "nextapp:build",
-        "dev": true,
-        "turbo": true
+        "port": 9000
       },
       "configurations": {
-        "development": {
-          "buildTarget": "nextapp:build:development",
-          "dev": true
-        },
+        "development": {},
         "production": {
-          "port": 6001,
-          "buildTarget": "nextapp:build:production",
-          "dev": false
+          "port": 9001
         }
       }
     },
